@@ -3,6 +3,17 @@
 import chalk from 'chalk';
 import fs from 'fs';
 
+function links(text) {
+    const regex = /\[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)/gm;
+    const arrayMatchs = [];
+    let temp;
+    while ((temp = regex.exec(text)) !== null) {
+        arrayMatchs.push({ [temp[1]]: temp[2] });
+    }
+
+    return arrayMatchs.length === 0 ? 'There is no link.' : arrayMatchs;
+}
+
 function dealWithError(err) {
     throw new Error(chalk.red(err.code, 'file not found.'));
 }
@@ -11,11 +22,9 @@ async function getFile(path) {
     const encoding = 'utf-8';
     try {
         const text = await fs.promises.readFile(path, encoding);
-        console.log(chalk.green(text));
+        return links(text);
     } catch (error) {
         dealWithError(error);
-    } finally {
-        console.log(chalk.yellow('operação concluída'));
     }
 }
 
@@ -40,6 +49,5 @@ async function getFile(path) {
 //     });
 // }
 
-getFile('./arquivos/texto1.md');
-
-console.log('teste');
+export default getFile;
+//console.log('teste');
