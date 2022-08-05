@@ -1,8 +1,13 @@
 {
   "name": "lf-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "identify links in a markdown document and bring information about the link status.",
-  "keywords": ["markdown", "URL", "links", "infos"],
+  "keywords": [
+    "markdown",
+    "URL",
+    "links",
+    "infos"
+  ],
   "main": "cli.js",
   "bin": {
     "lf-markdown": "cli.js"
@@ -15,8 +20,8 @@
   "author": "Luccas Fialho",
   "license": "ISC",
   "bugs": {
-    "url" : "https://github.com/luccas-fialho/my_first_lib/issues",
-    "email" : "luccas.flh@gmail.com"
+    "url": "https://github.com/luccas-fialho/my_first_lib/issues",
+    "email": "luccas.flh@gmail.com"
   },
   "homepage": "https://github.com/luccas-fialho/my_first_lib",
   "dependencies": {
