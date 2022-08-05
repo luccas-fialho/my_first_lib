@@ -1,6 +1,6 @@
-import getFile from "./index.js";
-import chalk from "chalk";
-import checkURLs from "./http-validacao.js";
+const getFile = require("./index.js");
+const chalk = require('chalk');
+const checkURLs = require("./http-validacao.js");
 
 const path = process.argv;
 

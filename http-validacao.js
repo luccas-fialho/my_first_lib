@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+const fetch = require('node-fetch');
 
 function handleError(error) {
   throw new Error(error.message);
@@ -35,4 +35,4 @@ async function checkURLs(arrayLinks) {
   return results;
 }
 
-export default checkURLs;
+module.exports= checkURLs;

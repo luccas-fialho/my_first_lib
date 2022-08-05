@@ -1,7 +1,5 @@
-// sempre que iniciar um projeto em node precisamos criar um arquivo de configuração chamado package.json com npm init
-
-import chalk from 'chalk';
-import fs from 'fs';
+const chalk = require('chalk');
+const fs = require('fs');
 
 function links(text) {
     const regex = /\[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)/gm;
@@ -14,7 +12,7 @@ function links(text) {
     return arrayMatchs.length === 0 ? 'There is no link.' : arrayMatchs;
 }
 
-function dealWithError(err) {
+function handleError(err) {
     throw new Error(chalk.red(err.code, 'file not found.'));
 }
 
@@ -24,30 +22,8 @@ async function getFile(path) {
         const text = await fs.promises.readFile(path, encoding);
         return links(text);
     } catch (error) {
-        dealWithError(error);
+        handleError(error);
     }
 }
 
-// function getFile(path) {
-//     const encoding = 'utf-8';
-//     fs.promises.readFile(path, encoding)
-//     .then((text) => {
-//         console.log(chalk.green(text));
-//     })
-//     .catch((err) => {
-//         dealWithError(err);
-//     })
-// }
-
-// function getFile(path) {
-//     const encoding = 'utf-8';
-//     fs.readFile(path, encoding, (err, text) => {
-//         if(err) {
-//             dealWithError(err);
-//         }
-//         console.log(chalk.green(text));
-//     });
-// }
-
-export default getFile;
-//console.log('teste');
+module.exports = getFile;
