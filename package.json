@@ -1,11 +1,11 @@
 {
-  "name": "lf-markdown-lib",
+  "name": "lf-markdown",
   "version": "1.0.0",
   "description": "identify links in a markdown document and bring information about the link status.",
   "keywords": ["markdown", "URL", "links", "infos"],
-  "main": "./cli.js",
+  "main": "cli.js",
   "bin": {
-    "<lf-markdown>": "./cli.js"
+    "lf-markdown": "cli.js"
   },
   "preferGlobal": true,
   "scripts": {
